@@ -10,5 +10,6 @@
 rootProject.name = 'ecommerce'
 include(
     'backend:eureka-service',
-    'backend:products-microservice'
+    'backend:products-microservice',
+    'backend:api-gateway',
 )
