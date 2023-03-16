@@ -29,14 +29,6 @@ public class ProductAggregate {
     @CommandHandler
     public ProductAggregate(CreateProductCommand createProductCommand) {
 
-        //-- validating the command
-            if(createProductCommand.getProductName( ) == null || createProductCommand.getProductName( ).isBlank( ))
-                throw new IllegalArgumentException("Product name cannot be null");
-
-            if(createProductCommand.getProductPrice( ).compareTo(BigDecimal.ZERO) <= 0)
-                throw new IllegalArgumentException("Product price should be greater than 0");
-        //--
-
         var productCreatedEvent= new ProductCreatedEvent( );
             BeanUtils.copyProperties(createProductCommand, productCreatedEvent);
 

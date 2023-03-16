@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.ProductsMicroservice.Adapters.Inbound.HTTP.Requests.CreateProductRequest;
 import com.ecommerce.ProductsMicroservice.Domain.Commands.CreateProductCommand;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/products")
 public class ProductsCommandController {
@@ -25,7 +27,7 @@ public class ProductsCommandController {
         this.commandGateway= commandGateway;}
 
     @PostMapping
-    public void createProduct(@RequestBody CreateProductRequest request) {
+    public void createProduct(@Valid @RequestBody CreateProductRequest request) {
 
         var createProductCommand= CreateProductCommand.builder( )
             .productID(UUID.randomUUID( ).toString( ))
