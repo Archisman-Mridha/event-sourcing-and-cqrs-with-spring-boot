@@ -1,6 +1,9 @@
 package com.ecommerce.ProductsMicroservice.Domain.Queries;
 
+import java.util.List;
+
 import org.axonframework.eventhandling.EventHandler;
+import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.stereotype.Component;
 
 import com.ecommerce.ProductsMicroservice.Domain.Entities.ProductEntity;
@@ -8,11 +11,11 @@ import com.ecommerce.ProductsMicroservice.Domain.Events.ProductCreatedEvent;
 import com.ecommerce.ProductsMicroservice.Domain.Repositories.ProductsRepository;
 
 @Component // so that Spring Boot auto detects and includes this class
-public class ProductEventsHandler {
+public class ProductsQueryHandler {
 
     private final ProductsRepository productsRepository;
 
-    public ProductEventsHandler(ProductsRepository productsRepository) {
+    public ProductsQueryHandler(ProductsRepository productsRepository) {
         this.productsRepository= productsRepository;}
 
     /*
@@ -33,5 +36,9 @@ public class ProductEventsHandler {
 
         this.productsRepository.save(productEntity);
     }
+
+    @QueryHandler
+    public List<ProductEntity> findProducts(FindProductsQuery findProductsQuery) {
+        return this.productsRepository.findAll( );}
 
 }

@@ -5,7 +5,6 @@ import java.util.UUID;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,12 +16,12 @@ import com.ecommerce.ProductsMicroservice.Domain.Commands.CreateProductCommand;
 
 @RestController
 @RequestMapping("/products")
-public class ProductController {
+public class ProductsCommandController {
 
     private final CommandGateway commandGateway;
 
     @Autowired // enabling dependency injection
-    public ProductController(CommandGateway commandGateway) {
+    public ProductsCommandController(CommandGateway commandGateway) {
         this.commandGateway= commandGateway;}
 
     @PostMapping
@@ -42,9 +41,6 @@ public class ProductController {
             // TODO: handle exception
         }
     }
-
-    @GetMapping
-    public void getProduct( ) { }
 
     @PutMapping
     public void updateProduct( ) { }
