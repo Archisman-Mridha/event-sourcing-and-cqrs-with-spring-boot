@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    axon-server:
+        container_name: axon-server
+        image: axoniq/axonserver
+        ports:
+            - 8024:8024 # HTTP port
+            - 8124:8124 # GRPC port
+        volumes:
+            - ~/docker-data/axon:/data
+            - ~/docker-data/axon:/eventdata
+            - ~/docker-data/axon:/config
+        environment:
+            - AXONIQ_AXONSERVER_NAME=axon-server
+            - AXONIQ_AXONSERVER_HOST=localhost
+            - AXONIQ_AXONSERVER_HTTPPORT=8024
+            - AXONIQ_AXONSERVER_GRPCPORT=8124
+            - AXONIQ_AXONSERVER_DEV_MODE_ENABLED=true
