@@ -12,4 +12,5 @@ include(
     'backend:eureka-service',
     'backend:products-microservice',
     'backend:api-gateway',
+    'backend:orders-microservice',
 )

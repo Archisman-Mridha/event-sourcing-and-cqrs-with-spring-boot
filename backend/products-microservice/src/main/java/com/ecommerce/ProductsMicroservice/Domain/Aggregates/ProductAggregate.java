@@ -35,6 +35,8 @@ public class ProductAggregate {
         AggregateLifecycle.apply(productCreatedEvent);
     }
 
+    // event handlers
+
     @EventSourcingHandler
     public void onProductCreated(ProductCreatedEvent event) {
         this.productID= event.getProductID( );

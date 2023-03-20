@@ -1,6 +1,5 @@
 package com.ecommerce.ProductsMicroservice.Adapters.Inbound.HTTP.Controllers;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.axonframework.messaging.responsetypes.ResponseTypes;

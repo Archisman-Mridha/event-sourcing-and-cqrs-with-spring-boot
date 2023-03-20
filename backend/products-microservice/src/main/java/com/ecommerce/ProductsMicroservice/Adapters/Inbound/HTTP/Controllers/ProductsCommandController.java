@@ -39,9 +39,7 @@ public class ProductsCommandController {
         try {
             this.commandGateway.sendAndWait(createProductCommand);
 
-        } catch(Exception exception) {
-            // TODO: handle exception
-        }
+        } catch(Exception exception) { /* TODO: handle exception */ }
     }
 
     @PutMapping

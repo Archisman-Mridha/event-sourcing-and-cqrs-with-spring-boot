@@ -1,4 +1,4 @@
-package com.ecommerce.ProductsMicroservice.Domain.Queries;
+package com.ecommerce.ProductsMicroservice.Domain;
 
 import java.util.List;
 
@@ -8,14 +8,15 @@ import org.springframework.stereotype.Component;
 
 import com.ecommerce.ProductsMicroservice.Domain.Entities.ProductEntity;
 import com.ecommerce.ProductsMicroservice.Domain.Events.ProductCreatedEvent;
+import com.ecommerce.ProductsMicroservice.Domain.Queries.FindProductsQuery;
 import com.ecommerce.ProductsMicroservice.Domain.Repositories.ProductsRepository;
 
 @Component // so that Spring Boot auto detects and includes this class
-public class ProductsQueryHandler {
+public class ProductsQueriesHandler {
 
     private final ProductsRepository productsRepository;
 
-    public ProductsQueryHandler(ProductsRepository productsRepository) {
+    public ProductsQueriesHandler(ProductsRepository productsRepository) {
         this.productsRepository= productsRepository;}
 
     /*

@@ -6,7 +6,7 @@ import com.ecommerce.ProductsMicroservice.Domain.Entities.ProductEntity;
 
 public interface ProductsRepository extends JpaRepository<ProductEntity, String> {
 
-    ProductEntity findByID(String id);
-    ProductEntity findByIDOrName(String id, String name);
+    ProductEntity findOneByID(String id);
+    ProductEntity findOneByIDOrName(String id, String name);
 
 }
